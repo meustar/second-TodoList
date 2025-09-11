@@ -42,8 +42,8 @@ function render() {
           <div class="task">
             <div class="task-done">${taskList[i].taskContent}</div>
             <div>
-              <button onclick="toggleComplete('${taskList[i].id}')">Check</button>
-              <button onclick="deleteTask()><i class="fa-solid fa-trash"></i></button>
+              <button onclick="toggleComplete('${taskList[i].id}')"><i class="fa-solid fa-rotate-left"></i></button>
+              <button onclick="deleteTask('${taskList[i].id}')"><i class="fa-solid fa-trash"></i></button>
             </div>
           </div>
     `;
@@ -52,8 +52,8 @@ function render() {
           <div class="task">
             <div>${taskList[i].taskContent}</div>
             <div>
-              <button onclick="toggleComplete('${taskList[i].id}')">Check</button>
-              <button onclick="deleteTask()><i class="fa-solid fa-trash"></i></button>
+              <button onclick="toggleComplete('${taskList[i].id}')"><i class="fa-solid fa-check"></i></button>
+              <button onclick="deleteTask('${taskList[i].id}')"><i class="fa-solid fa-trash"></i></button>
             </div>
           </div>
     `;
@@ -79,6 +79,13 @@ function randomIDGenerate() {
   return "_" + Math.random().toString(36).substr(2, 9);
 }
 
+// 아이템 삭제하기.
 function deleteTask(id) {
-  console.log("삭제하자");
+  for (let i = 0; i < taskList.length; i++) {
+    if (taskList[i].id == id) {
+      taskList.splice(i, 1);
+      break;
+    }
+  }
+  render(); // 값을 업데이트 하면 UI 도 업데이트 하게 한다. -> 자동 "리엑트"
 }
