@@ -44,7 +44,12 @@ body {
 }
 
 .task-done {
+  background-color: rgba(171, 233, 171, 0.6);
   text-decoration: line-through;
+}
+
+.task-ongoing {
+  background-color: rgba(236, 236, 150, 0.6);
 }
 
 .task-tabs div {

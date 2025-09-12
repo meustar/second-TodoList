@@ -61,8 +61,8 @@ function render() {
   for (let i = 0; i < list.length; i++) {
     if (list[i].isComplete == true) {
       resultHTML += `
-          <div class="task">
-            <div class="task-done">${list[i].taskContent}</div>
+          <div class="task task-done">
+            <div>${list[i].taskContent}</div>
             <div>
               <button onclick="toggleComplete('${list[i].id}')"><i class="fa-solid fa-rotate-left"></i></button>
               <button onclick="deleteTask('${list[i].id}')"><i class="fa-solid fa-trash"></i></button>
@@ -71,7 +71,7 @@ function render() {
     `;
     } else {
       resultHTML += `
-          <div class="task">
+          <div class="task task-ongoing">
             <div>${list[i].taskContent}</div>
             <div>
               <button onclick="toggleComplete('${list[i].id}')"><i class="fa-solid fa-check"></i></button>
