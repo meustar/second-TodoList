@@ -35,6 +35,7 @@ body {
   left: 0px;
   top: 52px;
   padding: 0px;
+  transition: all 0.3s ease; /* 이동/크기 변화 부드럽게 */
 }
 
 .task {

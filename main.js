@@ -20,6 +20,23 @@ let taskList = [];
 let mode = "all";
 let filterList = [];
 
+let horizontalUnderLine = document.getElementById("under-line");
+//console.log(horizontalUnderLine);//
+let horizontalMenus = document.querySelectorAll(
+  ".task-tabs div:not(#under-line)"
+);
+
+horizontalMenus.forEach((menu) =>
+  menu.addEventListener("click", (e) => horizontalIndicator(e))
+);
+
+function horizontalIndicator(e) {
+  horizontalUnderLine.style.left = e.currentTarget.offsetLeft + "px";
+  horizontalUnderLine.style.width = e.currentTarget.offsetWidth + "px";
+  //horizontalUnderLine.style.top =
+  //e.currentTarget.offsetTop + e.currentTarget.offsetHeight + "px";
+}
+
 for (let i = 1; i < tabs.length; i++) {
   tabs[i].addEventListener("click", function (event) {
     filter(event);
